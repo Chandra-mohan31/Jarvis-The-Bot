@@ -1,0 +1,54 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        .talk{
+            height: 100px;
+            width: 250px;
+            color: black;
+            background-color: gray;
+            border-radius: 10%;
+            border: none;
+            cursor: pointer;
+ 
+        }
+        .talk > h4{
+            color:white;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        #mic__state{
+            margin-top: 30px;
+            
+        }
+       
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1>JARVIS-THE BOT</h1>
+    
+        <button class="talk" ><h4>Click to Talk</h4></button>
+        <img id="mic__state" src="micoff.png" alt="mic" width="40px" height="40px"  />
+        <h3 class="content"></h3>
+        <p class="chat"></p>
+        
+    </div>
+    
+   
+    
+    <script src="App.js"></script>
+   
+
+</body>
+</html>

@@ -18,11 +18,13 @@ const thanks = ['you are welcome','no mention','its my job buddy'];
 
 const love = ['you are in trouble','love u too','have a party'];
 
-const hate =['no problem','you loser','dash dash you'];
+const hate =['no problem','you loser',' dash you'];
 
 const help=['i am sorry dude ','i cant help with that','i am better than humans','sure buddy'];
 
-const name=['i am chiti the robot and my master is chandra mohan the great'];
+const name=['i am jarvis the bot ,Assistant of Chandra Mohan'];
+
+const heyjarvis=['welcome sir','welcome chand'];
 
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -38,8 +40,13 @@ recognition.onresult = function(event){
     const current = event.resultIndex;
     const transcript = event.results[current][0].transcript;
     content.textContent = transcript;
+    var personchats = document.createElement("h3");
+    personchats.innerHTML = transcript;
+    document.getElementById("chats__container").appendChild(personchats);
     readOutLoud(transcript);
     app_state.src="micoff.png";
+   
+    
     
     
     
@@ -84,7 +91,7 @@ function readOutLoud(message){
         const finalText =
                help[Math.floor(Math.random()*help.length)];
                speech.text = finalText;
-    }  else  if (message.includes('h')){
+    }  else  if (message.includes('hi')){
         const finalText =
                hi[Math.floor(Math.random()*hi.length)];
                speech.text = finalText;
@@ -92,8 +99,16 @@ function readOutLoud(message){
         const finalText =
                name[Math.floor(Math.random()*name.length)];
                speech.text = finalText;
-    } 
-    
+    } else  if (message.includes('hello')){
+        const finalText =
+               hi[Math.floor(Math.random()*hi.length)];
+               speech.text = finalText;
+    }
+    else  if (message.includes('hey')){
+        const finalText =
+               heyjarvis[Math.floor(Math.random()*heyjarvis.length)];
+               speech.text = finalText;
+    }
   
   
     
@@ -103,6 +118,11 @@ function readOutLoud(message){
     speech.rate = 1;
 
     window.speechSynthesis.speak(speech);
+    console.log(speech.text);
+    chatMessage.textContent = speech.text;
+    var botchats = document.createElement("P");
+    botchats.innerHTML = speech.text;
+    document.getElementById("chats__container").appendChild(botchats);
     
   
    

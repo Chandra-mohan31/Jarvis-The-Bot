@@ -6,18 +6,18 @@
     <style>
         
         .talk{
-            height: 100px;
-            width: 250px;
+            height: 50px;
+            width: 100px;
             color: black;
             background-color: gray;
-            border-radius: 10%;
+            border-radius: 2px;
             border: none;
             cursor: pointer;
  
         }
         .talk > h4{
             color:white;
-            font-size: 20px;
+            
             font-weight: bold;
         }
         .container{
@@ -25,32 +25,69 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
+        
+        
         }
         #mic__state{
             margin-top: 30px;
             
+        }
+        .bots__container{
+            display: flex;
+            flex-direction: row;
+        }
+        .mic__btn__state{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .chat__inputBar{
+            
+           height: 20px;
+           width: 40px;
+           margin-top: 5px;
+           
+
         }
        
         
     </style>
 </head>
 <body>
+    <div class="app__container">
     
     <div class="container">
     <h1>JARVIS-THE BOT</h1>
-    
-        <button class="talk" ><h4>Click to Talk</h4></button>
-        <img id="mic__state" src="micoff.png" alt="mic" width="50px" height="50px"  />
-        <h3 class="content"></h3>
-        <p class="chat"></p>
+    <input type="text" value="" placeholder="chat here " id="input__chat" />
+    <button class="chat__inputBar" >send</button>
+
+      <div class="bots__container">
         <img class="bot" src="bot.gif" alt="" width="200px" height="200px" />
+        <div class="mic__btn__state">
+            <button class="talk" ><h4>Click to Talk</h4></button>
+            <img id="mic__state" src="micoff.png" alt="mic" width="50px" height="50px"  />
+        </div>
+        
+        <img class="bot" src="bot.gif" alt="" width="200px" height="200px" />
+      </div>
+       
+        
+        <!--  
+             <h3 class="content"></h3>
+        <p class="chat"></p>
+        -->
         <div id="chats__container"></div>
+       
+        
+        
         
     </div>
     
    
     
     <script src="App.js"></script>
+</div>
    
 
 </body>

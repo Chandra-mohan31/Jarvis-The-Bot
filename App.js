@@ -1,7 +1,8 @@
 const btn = document.querySelector(".talk");
-const content = document.querySelector(".content");
+//const content = document.querySelector(".content");
 const app_state = document.querySelector("#mic__state");
-const chatMessage = document.querySelector(".chat");
+//const chatMessage = document.querySelector(".chat");
+const chatBar = document.querySelector(".chat__inputBar");
 
 
 
@@ -39,11 +40,12 @@ recognition.onstart = function(){
 recognition.onresult = function(event){
     const current = event.resultIndex;
     const transcript = event.results[current][0].transcript;
-    content.textContent = transcript;
+   // content.textContent = transcript;
     var personchats = document.createElement("h3");
     personchats.innerHTML = transcript;
     document.getElementById("chats__container").appendChild(personchats);
     readOutLoud(transcript);
+    //readOutLoud(text from the input of chat );
     app_state.src="micoff.png";
    
     
@@ -52,6 +54,11 @@ recognition.onresult = function(event){
     
 
 }
+chatBar.addEventListener('click',()=>{
+    
+    var inputVal = document.getElementById("input__chat").value;
+    readOutLoud(inputVal);
+})
 
 btn.addEventListener('click',()=>{
     recognition.start();
@@ -62,6 +69,7 @@ btn.addEventListener('click',()=>{
 });
 
 function readOutLoud(message){
+    //console.log(message);
     
 
     const speech = new SpeechSynthesisUtterance();
@@ -119,7 +127,7 @@ function readOutLoud(message){
 
     window.speechSynthesis.speak(speech);
     console.log(speech.text);
-    chatMessage.textContent = speech.text;
+    //chatMessage.textContent = speech.text;
     var botchats = document.createElement("P");
     botchats.innerHTML = speech.text;
     document.getElementById("chats__container").appendChild(botchats);
